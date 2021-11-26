@@ -12,7 +12,6 @@ const StyledNav = styled.div`
   grid-column: span 12;
   width: 100%;
   height: auto;
-  border: 1px solid yellow;
 `;
 
 const Nav: React.FC = () => {
@@ -21,7 +20,8 @@ const Nav: React.FC = () => {
       <Box
         sx={{
           flexGrow: 1,
-        }}>
+        }}
+      >
         <AppBar position="static">
           <Toolbar>
             <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>

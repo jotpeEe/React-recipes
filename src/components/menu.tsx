@@ -5,7 +5,6 @@ const StyledMenu = styled.div`
   grid-row: span 11;
   display: flex;
   height: 100%;
-  border: 1px solid var(--white);
   flex-direction: column;
   justify-content: flex-start;
 `;

@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import IngEdit from './ingredientsEdit';
+import IngEdit from './createRecipe';
+import RecipeList from './listRecipes';
+
+export interface RecipesProps {
+  recipes: RecipeProps[];
+}
+
+export interface RecipeProps {
+  ingList: ItemProps[];
+  desc: string;
+}
+
+interface ItemProps {
+  name: string;
+  quantity: string;
+}
 
 const StyledView = styled.div`
   grid-column: span 11;
@@ -13,31 +28,22 @@ const StyledView = styled.div`
   color: var(--black);
 
   > div {
-    border: 1px solid purple;
     padding: 50px;
-  }
-
-  .ingredients {
-  }
-
-  .to-do {
-    grid-column: span 3;
-    grid-row-start: 4;
-    grid-row-end: 7;
-  }
-
-  .list {
-    grid-column: span 3;
-    grid-row: span 6;
   }
 `;
 
 const Main: React.FC = () => {
+  const [recipe, setRecipe] = useState({});
+  const [recipes, setRecipes] = useState<RecipeProps[]>([]);
+
+  useEffect(() => {
+    if (Object.keys(recipe).length === 0) return;
+    setRecipes((recipes: any) => [...recipes, recipe]);
+  }, [recipe]);
   return (
     <StyledView>
-      <IngEdit />
-      <div className="to-do"></div>
-      <div className="list"></div>
+      <IngEdit setRecipe={setRecipe} />
+      <RecipeList recipes={recipes} />
     </StyledView>
   );
 };
