@@ -23,11 +23,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--black);
     color: var(--white);
     font-family: var(--font-sans);
-    font-size: var(--fz-xl);
+    font-size: var(--fs-xs);
     line-height: 1.3;
 
     @media (max-width: 480px) {
-      font-size: var(--fz-lg);
+      font-size: var(--fs-lg);
     }
 
   }
