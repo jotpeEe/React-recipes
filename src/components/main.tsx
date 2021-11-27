@@ -19,7 +19,7 @@ export interface ItemProps {
 }
 
 const StyledView = styled.div`
-  grid-column: span 11;
+  grid-column: span 12;
   grid-row: span 11;
   display: grid;
   grid-template-columns: repeat(6, 1fr);

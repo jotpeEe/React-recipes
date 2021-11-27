@@ -61,6 +61,7 @@ const StyledCreateRecipe = styled.div`
     li {
       width: 33%;
       border-right: 1px solid var(--gray);
+      border-bottom: 6px solid var(--light-green);
     }
   }
 `;
