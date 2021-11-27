@@ -2,7 +2,6 @@ import React from 'react';
 import GlobalStyle from '../styles/globalstyle';
 
 import Nav from '../components/nav';
-import Menu from '../components/menu';
 import Main from '../components/main';
 
 function Home() {
@@ -10,7 +9,6 @@ function Home() {
     <>
       <GlobalStyle />
       <Nav />
-      <Menu />
       <Main />
     </>
   );
