@@ -4,6 +4,7 @@ const variables = css`
   :root {
     --white: #fff;
     --dark-white: hsla(0, 0%, 100%, 0.75);
+    --gray: rgba(21, 22, 25, 0.78);
     --black: hsl(225, 9%, 9%);
     --font-sans: -apple-system, system-ui, sans-serif;
 

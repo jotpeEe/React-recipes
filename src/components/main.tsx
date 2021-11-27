@@ -13,7 +13,7 @@ export interface RecipeProps {
   desc: string;
 }
 
-interface ItemProps {
+export interface ItemProps {
   name: string;
   quantity: string;
 }

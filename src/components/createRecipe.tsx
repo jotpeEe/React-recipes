@@ -7,12 +7,14 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Grid from '@mui/material/Grid';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 interface CreateRecipeProps {
-  setRecipe: any;
+  setRecipe: (arg: object) => void;
 }
 
 interface ItemProps {
@@ -58,6 +60,7 @@ const StyledCreateRecipe = styled.div`
 
     li {
       width: 33%;
+      border-right: 1px solid var(--gray);
     }
   }
 `;
@@ -76,6 +79,13 @@ const CreateRecipe: React.FC<CreateRecipeProps> = ({ setRecipe }) => {
         quantity: quantity,
       },
     ]);
+  };
+
+  const removeItem = (id: number) => {
+    const newItems = [...ingredientsList].filter((item, idx) => {
+      return idx !== id;
+    });
+    setIngredientsList(newItems);
   };
 
   const createRecipe = () => {
@@ -121,16 +131,26 @@ const CreateRecipe: React.FC<CreateRecipeProps> = ({ setRecipe }) => {
             variant="standard"
           />
           <div className="button">
-            <IconButton onClick={addItem} aria-label="add" size="small">
-              <AddIcon />
-            </IconButton>
+            <Tooltip title="Add">
+              <IconButton onClick={addItem} aria-label="add" size="small">
+                <AddIcon />
+              </IconButton>
+            </Tooltip>
           </div>
         </div>
         <div className="grid-container">
           <Grid className="items-grid" item xs={12} md={12}>
             <List dense={true}>
               {ingredientsList.map((item, idx) => (
-                <ListItem key={idx}>
+                <ListItem
+                  key={idx}
+                  secondaryAction={
+                    <Tooltip title="delete">
+                      <IconButton onClick={() => removeItem(idx)} edge="end">
+                        <DeleteIcon />
+                      </IconButton>
+                    </Tooltip>
+                  }>
                   <ListItemIcon>
                     <FastfoodIcon />
                   </ListItemIcon>

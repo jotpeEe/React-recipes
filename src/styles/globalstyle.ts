@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--white);
+    color: var(--black);
     line-height: 1.1;
   }
 
