@@ -42,8 +42,8 @@ const Main: React.FC = () => {
   }, [recipe]);
   return (
     <StyledView>
-      <IngEdit setRecipe={setRecipe} />
-      <RecipeList recipes={recipes} />
+      {/* <IngEdit setRecipe={setRecipe} /> */}
+      {/* <RecipeList recipes={recipes} /> */}
     </StyledView>
   );
 };

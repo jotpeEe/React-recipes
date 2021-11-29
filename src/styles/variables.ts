@@ -7,8 +7,10 @@ const variables = css`
     --gray: rgba(21, 22, 25, 0.2);
     --black: hsl(225, 9%, 9%);
     --blue: hsl(215, 64%, 51%);
-    --green: hsl(190, 49%, 20%);
-    --light-green: hsl(185, 12%, 57%);
+    --dark-green: hsl(126, 33%, 29%);
+    --green: hsl(175, 100%, 15%);
+    --light-green: hsl(186, 100%, 27%);
+    --light-gray: hsl(185, 12%, 57%);
     --font-sans: -apple-system, system-ui, sans-serif;
 
     --fs-xxs: 12px;

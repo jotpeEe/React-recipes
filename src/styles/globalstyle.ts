@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     min-height: 100%;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
     font-family: var(--font-sans);
     font-size: var(--fs-xs);
     line-height: 1.3;
@@ -112,9 +112,6 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: repeat(12, 1fr);
-    grid-template-columns: repeat(12, 1fr);
   }
 `;
 

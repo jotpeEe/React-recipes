@@ -73,6 +73,7 @@ const CreateRecipe: React.FC<CreateRecipeProps> = ({ setRecipe }) => {
   const [ingredientsList, setIngredientsList] = useState<ItemProps[]>([]);
 
   const addItem = () => {
+    if (ingredient === '') return;
     setIngredientsList([
       ...ingredientsList,
       {
@@ -151,7 +152,8 @@ const CreateRecipe: React.FC<CreateRecipeProps> = ({ setRecipe }) => {
                         <DeleteIcon />
                       </IconButton>
                     </Tooltip>
-                  }>
+                  }
+                >
                   <ListItemIcon>
                     <FastfoodIcon />
                   </ListItemIcon>
