@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import IngEdit from './createRecipe';
-import RecipeList from './listRecipes';
-
 export interface RecipesProps {
   recipes: RecipeProps[];
 }

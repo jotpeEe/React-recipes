@@ -1,11 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import sr from '../../styles/sr';
+
 import StepTwo from '../addRecipe/stepTwo';
 import StepOne from '../addRecipe/stepOne';
 import StepThree from '../addRecipe/stepThree';
+export interface RecipesProps {
+  recipes: RecipeProps[];
+}
 
-const StyledContainer = styled.div<{ active: boolean }>`
+export interface RecipeProps {
+  ingList: ItemProps[];
+  desc: string;
+}
+
+export interface ItemProps {
+  name: string;
+  quantity: string;
+}
+
   height: 100vh;
 
   .add-nav {
@@ -81,19 +94,8 @@ const StyledContainer = styled.div<{ active: boolean }>`
     }
   }
 `;
-export interface RecipesProps {
-  recipes: RecipeProps[];
-}
 
-export interface RecipeProps {
-  ingList: ItemProps[];
-  desc: string;
-}
 
-export interface ItemProps {
-  name: string;
-  quantity: string;
-}
 
 const Add: React.FC = () => {
   const targetRef = useRef(null);
@@ -102,7 +104,6 @@ const Add: React.FC = () => {
   const [recipes, setRecipes] = useState<RecipeProps[]>([]);
 
   useEffect(() => {
-    console.log(step);
     sr(targetRef.current);
     if (Object.keys(recipe).length === 0) return;
     setRecipes((recipes: any) => [...recipes, recipe]);

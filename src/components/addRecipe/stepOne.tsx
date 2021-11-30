@@ -105,23 +105,21 @@ const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => 
   useEffect(() => {
     sr(targetRef.current);
   }, [ingredientsList]);
+
   return (
-    <StyledAddInserts active={step === 0}>
     <StyledAddInserts active={step === 0} ref={targetRef}>
       <div className="add-nav">
         <div className="step-info">
           <span className="step-number">1</span>
           <div className="text-cointainer">
-            <h2>Add identifiers</h2>
+            <h2>Add title & ingredients</h2>
             <p>Select category and add title</p>
           </div>
         </div>
         <div className="button">
-          <ThemeProvider theme={theme}>
-            <Button onClick={createRecipe} variant="contained">
-              NEXT
-            </Button>
-          </ThemeProvider>
+          <Button onClick={createRecipe} variant="contained">
+            NEXT
+          </Button>
         </div>
       </div>
       <div className="inserts">
@@ -132,11 +130,11 @@ const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => 
             id="demo-simple-select-standard"
             label="Category">
             <MenuItem value="">
-              <em>None</em>
+              <em>Dessert</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Breakfest</MenuItem>
+            <MenuItem value={20}>Dinner</MenuItem>
+            <MenuItem value={30}>Supper</MenuItem>
           </Select>
         </FormControl>
         <TextField id="standard-basic" label="Recipe name" fullWidth variant="standard" />
@@ -163,22 +161,23 @@ const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => 
         </Tooltip>
       </div>
       <ul className="item-list">
-        {ingredientsList.map((item, idx) => (
-          <ListItem
-            key={idx}
-            secondaryAction={
-              <Tooltip title="delete">
-                <IconButton onClick={() => removeItem(idx)} edge="end">
-                  <DeleteIcon />
-                </IconButton>
-              </Tooltip>
-            }>
-            <ListItemIcon>
-              <FastfoodIcon />
-            </ListItemIcon>
-            <ListItemText primary={item.name} secondary={item.quantity} />
-          </ListItem>
-        ))}
+        {ingredientsList &&
+          ingredientsList.map((item, idx) => (
+            <ListItem
+              key={idx}
+              secondaryAction={
+                <Tooltip title="delete">
+                  <IconButton onClick={() => removeItem(idx)} edge="end">
+                    <DeleteIcon />
+                  </IconButton>
+                </Tooltip>
+              }>
+              <ListItemIcon>
+                <FastfoodIcon />
+              </ListItemIcon>
+              <ListItemText primary={item.name} secondary={item.quantity} />
+            </ListItem>
+          ))}
       </ul>
     </StyledAddInserts>
   );
