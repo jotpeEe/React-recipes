@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import sr from '../../styles/sr';
+
 import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
@@ -69,6 +71,7 @@ interface ItemProps {
 }
 
 const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => {
+  const targetRef = useRef(null);
   const [ingredient, setIngredient] = useState('');
   const [quantity, setQuantity] = useState('');
   const [ingredientsList, setIngredientsList] = useState<ItemProps[]>([]);
@@ -99,8 +102,12 @@ const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => 
     setStep(1);
   };
 
+  useEffect(() => {
+    sr(targetRef.current);
+  }, [ingredientsList]);
   return (
     <StyledAddInserts active={step === 0}>
+    <StyledAddInserts active={step === 0} ref={targetRef}>
       <div className="add-nav">
         <div className="step-info">
           <span className="step-number">1</span>

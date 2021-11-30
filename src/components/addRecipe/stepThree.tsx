@@ -1,4 +1,5 @@
 import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -6,6 +7,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import sr from '../../styles/sr';
 
 const StyledAddInserts = styled.div`
   display: flex;
@@ -20,8 +22,14 @@ interface FinishProps {
 }
 
 const Finish: React.FC<FinishProps> = ({ setStep }) => {
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    sr(targetRef.current);
+  }, []);
+
   return (
-    <StyledAddInserts>
+    <StyledAddInserts ref={targetRef}>
       <div className="add-nav">
         <div className="step-info">
           <span className="step-number">3</span>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import sr from '../../styles/sr';
 import StepTwo from '../addRecipe/stepTwo';
 import StepOne from '../addRecipe/stepOne';
 import StepThree from '../addRecipe/stepThree';
@@ -95,12 +96,14 @@ export interface ItemProps {
 }
 
 const Add: React.FC = () => {
+  const targetRef = useRef(null);
   const [step, setStep] = useState(0);
   const [recipe, setRecipe] = useState({});
   const [recipes, setRecipes] = useState<RecipeProps[]>([]);
 
   useEffect(() => {
     console.log(step);
+    sr(targetRef.current);
     if (Object.keys(recipe).length === 0) return;
     setRecipes((recipes: any) => [...recipes, recipe]);
   }, [recipe, step]);
