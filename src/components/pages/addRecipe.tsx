@@ -19,6 +19,7 @@ export interface ItemProps {
   quantity: string;
 }
 
+const StyledContainer = styled.div<{ activeStep: number }>`
   height: 100vh;
 
   .add-nav {
@@ -61,10 +62,24 @@ export interface ItemProps {
   }
 
   .add-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--gray);
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 10%;
+    height: 10vh;
+    background-color: var(--dark-white2);
+
+    .slider-text {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      min-width: 335px;
+      padding-top: 10px;
+    }
   }
 
   .button {
@@ -93,9 +108,51 @@ export interface ItemProps {
       padding-right: 0px;
     }
   }
+
+  .slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
 `;
 
+const ListItem = styled.li<{ active: boolean }>`
+  background-color: ${props => (props.active ? 'var(--light-green)' : 'var(--white)')};
+  border: 2px solid var(--gray);
+  border-radius: 100px;
+  min-width: 12px;
+  height: 12px;
+  position: relative;
+`;
 
+const Divider = styled.div<{ active: boolean }>`
+  width: 100%;
+  margin: 0px 7px;
+  position: relative;
+
+  :after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    background-color: ${props => (props.active ? 'var(--light-green)' : 'var(--gray)')};
+    height: 2px;
+    z-index: 0;
+    width: 100%;
+  }
+`;
+
+const SliderText = styled.p<{ active: boolean }>`
+  color: ${props => (props.active ? 'var(--black)' : 'var(--gray)')};
+  padding: 0px;
+  margin: 0;
+`;
 
 const Add: React.FC = () => {
   const targetRef = useRef(null);
@@ -112,7 +169,7 @@ const Add: React.FC = () => {
   const viewStep = (id: number) => {
     switch (id) {
       case 1:
-        return <StepTwo step={step} setStep={setStep} setRecipe={setRecipe} />;
+        return <StepTwo step={step} setStep={setStep} setRecipe={setRecipe} recipe={recipe} />;
       case 2:
         return <StepThree step={step} setStep={setStep} />;
       default:
@@ -121,16 +178,29 @@ const Add: React.FC = () => {
   };
 
   return (
-    <StyledContainer active={step === 0}>
+    <StyledContainer activeStep={step}>
       <div className="add-grid">
         <div className="add-header">
           <div className="add-header-container">
-            <h1 className="header-p">Add recipe</h1>
+            <h2>Create Recipe</h2>
           </div>
         </div>
         {viewStep(step)}
         <div className="add-slider">
-          <div className="slider" />
+          <ul className="slider">
+            <ListItem active={true} />
+            <Divider active={step === 0 ? false : true} />
+            <ListItem active={step === 0 ? false : step === 1 ? true : true} />
+            <Divider active={step === 0 ? false : step === 1 ? false : true} />
+            <ListItem active={step === 0 ? false : step === 1 ? false : true} />
+          </ul>
+          <div className="slider-text">
+            <SliderText active={true}>Add Title</SliderText>
+            <SliderText active={step === 0 ? false : step === 1 ? true : true}>
+              How to make
+            </SliderText>
+            <SliderText active={step === 0 ? false : step === 1 ? false : true}>Preview</SliderText>
+          </div>
         </div>
       </div>
     </StyledContainer>
