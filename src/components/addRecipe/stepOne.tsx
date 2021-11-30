@@ -38,12 +38,16 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
     div:last-of-type {
       padding-right: 0px;
     }
+
+    .MuiButtonBase-root {
+      width: 70px;
+    }
   }
 
   ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 0 34px 0px 70px;
+    padding: 0 var(--p-recipe);
 
     li {
       grid-column-start: 1;

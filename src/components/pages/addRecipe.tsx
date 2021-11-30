@@ -53,7 +53,7 @@ export interface ItemProps {
       margin: 0 auto;
       min-height: 100px;
 
-      h1,
+      h2,
       p {
         color: var(--white);
       }
@@ -68,7 +68,7 @@ export interface ItemProps {
   }
 
   .button {
-    padding-right: 34px;
+    padding-right: var(--p-recipe);
   }
 
   .step-number {
@@ -87,7 +87,7 @@ export interface ItemProps {
     flex-direction: row;
     align-items: end;
     justify-content: center;
-    padding: 50px 34px 0px 70px;
+    padding: 50px var(--p-recipe) 0px var(--p-recipe);
 
     div:last-of-type {
       padding-right: 0px;
