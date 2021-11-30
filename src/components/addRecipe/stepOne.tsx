@@ -16,8 +16,6 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../styles/theme';
 
 const StyledAddInserts = styled.div<{ active: boolean }>`
   display: flex;

@@ -4,6 +4,7 @@ const variables = css`
   :root {
     --white: #fff;
     --dark-white: hsla(0, 0%, 100%, 0.75);
+    --dark-white2: hsl(0, 0%, 95%);
     --gray: rgba(21, 22, 25, 0.2);
     --black: hsl(225, 9%, 9%);
     --blue: hsl(215, 64%, 51%);
@@ -12,6 +13,8 @@ const variables = css`
     --light-green: hsl(186, 100%, 27%);
     --light-gray: hsl(185, 12%, 57%);
     --font-sans: -apple-system, system-ui, sans-serif;
+
+    --p-recipe: 70px;
 
     --fs-xxs: 12px;
     --fs-xs: 13px;
