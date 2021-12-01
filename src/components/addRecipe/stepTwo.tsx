@@ -28,8 +28,8 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
 interface AddIngredientsProps {
   setStep: (arg: number) => void;
   setRecipe: (arg: object) => void;
-  step: number;
   recipe: object;
+  step: number;
 }
 
 const AddIngredients: React.FC<AddIngredientsProps> = ({ setStep, step, setRecipe, recipe }) => {
@@ -67,7 +67,7 @@ const AddIngredients: React.FC<AddIngredientsProps> = ({ setStep, step, setRecip
           </Button>
         </div>
       </div>
-      <TextInput step={step} description={description} setDescription={setDescription} />
+      <TextInput recipe={recipe} step={step} setDescription={setDescription} />
     </StyledAddInserts>
   );
 };

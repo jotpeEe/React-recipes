@@ -65,6 +65,7 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
 interface AddTitProps {
   setStep: (arg: number) => void;
   setRecipe: (arg: object) => void;
+  recipe: object;
   step: number;
 }
 interface ItemProps {
@@ -72,7 +73,7 @@ interface ItemProps {
   quantity: string;
 }
 
-const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => {
+const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe, recipe }) => {
   const targetRef = useRef(null);
   const [ingredient, setIngredient] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -99,6 +100,7 @@ const AddIngredients: React.FC<AddTitProps> = ({ setStep, step, setRecipe }) => 
   const createRecipe = () => {
     if (ingredientsList.length === 0) return setStep(1);
     setRecipe({
+      ...recipe,
       ingList: ingredientsList,
     });
     setStep(1);

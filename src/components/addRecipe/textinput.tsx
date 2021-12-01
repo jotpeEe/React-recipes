@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextField } from '@mui/material';
 
 interface TextInputProps {
   setDescription: (arg: string[]) => void;
-  description: string[] | [];
+  recipe: {
+    ingList?: string[];
+    desc?: string[];
+  };
   step: number;
 }
 
-const TextInput: React.FC<TextInputProps> = ({ description, setDescription, step }) => {
+const TextInput: React.FC<TextInputProps> = ({ setDescription, step, recipe }) => {
   const [input, setInput] = useState<string[]>([]);
 
   const addItem = (idx: number, text: string) => {
@@ -16,8 +19,12 @@ const TextInput: React.FC<TextInputProps> = ({ description, setDescription, step
     if (!newArray[idx]) newArray.push(text);
     newArray.splice(idx, 1, text);
     setInput(newArray);
-    setDescription(input);
+    setDescription(newArray);
   };
+
+  useEffect(() => {
+    if (recipe.desc) setInput(recipe.desc);
+  }, [recipe]);
   return (
     <>
       <TextField
@@ -26,6 +33,7 @@ const TextInput: React.FC<TextInputProps> = ({ description, setDescription, step
         multiline
         rows={4}
         variant="standard"
+        defaultValue={input[0]}
         onChange={e => addItem(0, e.target.value)}
       />
       <TextField
@@ -34,6 +42,7 @@ const TextInput: React.FC<TextInputProps> = ({ description, setDescription, step
         multiline
         rows={4}
         variant="standard"
+        defaultValue={input[1]}
         onChange={e => addItem(1, e.target.value)}
       />
       <TextField
@@ -42,6 +51,7 @@ const TextInput: React.FC<TextInputProps> = ({ description, setDescription, step
         multiline
         rows={4}
         variant="standard"
+        defaultValue={input[2]}
         onChange={e => addItem(2, e.target.value)}
       />
       <TextField
@@ -50,6 +60,7 @@ const TextInput: React.FC<TextInputProps> = ({ description, setDescription, step
         multiline
         rows={4}
         variant="standard"
+        defaultValue={input[3]}
         onChange={e => addItem(3, e.target.value)}
       />
     </>

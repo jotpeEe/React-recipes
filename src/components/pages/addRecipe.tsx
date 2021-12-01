@@ -11,7 +11,7 @@ export interface RecipesProps {
 
 export interface RecipeProps {
   ingList: ItemProps[];
-  desc: string;
+  desc: string[];
 }
 
 export interface ItemProps {
@@ -173,7 +173,7 @@ const Add: React.FC = () => {
       case 2:
         return <StepThree step={step} setStep={setStep} />;
       default:
-        return <StepOne step={step} setStep={setStep} setRecipe={setRecipe} />;
+        return <StepOne step={step} setStep={setStep} setRecipe={setRecipe} recipe={recipe} />;
     }
   };
 
