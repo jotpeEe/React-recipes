@@ -2,7 +2,7 @@ import React from 'react';
 import GlobalStyle from '../../styles/globalstyle';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../styles/theme';
-import Add from './addRecipe';
+import Add from './createRecipe';
 
 function Home() {
   return (

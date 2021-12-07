@@ -20,7 +20,7 @@ export interface ItemProps {
 }
 
 const StyledContainer = styled.div<{ activeStep: number }>`
-  height: 100vh;
+  height: 130vh;
 
   .add-nav {
     display: flex;
@@ -36,17 +36,17 @@ const StyledContainer = styled.div<{ activeStep: number }>`
     }
   }
 
-  .add-grid {
+  .add-recipe-grid {
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
 
-    .add-header {
+    .header-background {
       background-color: var(--green);
     }
 
-    .add-header-container {
+    .header {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -61,7 +61,7 @@ const StyledContainer = styled.div<{ activeStep: number }>`
     }
   }
 
-  .add-slider {
+  .progress-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +73,20 @@ const StyledContainer = styled.div<{ activeStep: number }>`
     height: 10vh;
     background-color: var(--dark-white2);
 
-    .slider-text {
+    .bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 300px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .bar-text {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -83,7 +96,7 @@ const StyledContainer = styled.div<{ activeStep: number }>`
   }
 
   .button {
-    padding-right: var(--p-recipe);
+    padding-right: var(--p-recipe-right);
   }
 
   .step-number {
@@ -102,23 +115,15 @@ const StyledContainer = styled.div<{ activeStep: number }>`
     flex-direction: row;
     align-items: end;
     justify-content: center;
-    padding: 50px var(--p-recipe) 0px var(--p-recipe);
+    padding: var(--p-recipe);
 
     div:last-of-type {
       padding-right: 0px;
     }
-  }
 
-  .slider {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 300px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
   }
 `;
 
@@ -179,22 +184,22 @@ const Add: React.FC = () => {
 
   return (
     <StyledContainer activeStep={step}>
-      <div className="add-grid">
-        <div className="add-header">
-          <div className="add-header-container">
+      <div className="add-recipe-grid">
+        <div className="header-background">
+          <div className="header">
             <h2>Create Recipe</h2>
           </div>
         </div>
         {viewStep(step)}
-        <div className="add-slider">
-          <ul className="slider">
+        <div className="progress-bar">
+          <ul className="bar">
             <ListItem active={true} />
             <Divider active={step === 0 ? false : true} />
             <ListItem active={step === 0 ? false : step === 1 ? true : true} />
             <Divider active={step === 0 ? false : step === 1 ? false : true} />
             <ListItem active={step === 0 ? false : step === 1 ? false : true} />
           </ul>
-          <div className="slider-text">
+          <div className="bar-text">
             <SliderText active={true}>Add Title</SliderText>
             <SliderText active={step === 0 ? false : step === 1 ? true : true}>
               How to make

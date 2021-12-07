@@ -23,8 +23,14 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
   margin: 0 auto;
   min-width: 800px;
 
-  .ingredients {
+  @media (max-width: 800px) {
+    min-width: initial;
     width: 100%;
+    font-size: var(--fs-xs);
+  }
+
+  .ingredients {
+    min-width: 800px;
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -41,13 +47,26 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
 
     .MuiButtonBase-root {
       width: 70px;
+
+      @media (max-width: 800px) {
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      min-width: initial;
+      width: 100%;
+      font-size: var(--fs-xs);
+      padding: var(--p-recipe);
     }
   }
 
   ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 0 var(--p-recipe);
+    padding: 0 var(--p-recipe-right);
 
     li {
       grid-column-start: 1;

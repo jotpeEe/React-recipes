@@ -14,7 +14,10 @@ const variables = css`
     --light-gray: hsl(185, 12%, 57%);
     --font-sans: -apple-system, system-ui, sans-serif;
 
-    --p-recipe: 70px;
+    --nav-height: 80px;
+
+    --p-recipe: 50px 70px 0px 70px;
+    --p-recipe-right: 70px;
 
     --fs-xxs: 12px;
     --fs-xs: 13px;
