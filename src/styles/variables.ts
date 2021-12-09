@@ -12,7 +12,8 @@ const variables = css`
     --green: hsl(175, 100%, 15%);
     --light-green: hsl(186, 100%, 27%);
     --light-gray: hsl(185, 12%, 57%);
-    --font-sans: -apple-system, system-ui, sans-serif;
+    --font-sans: sans-serif;
+    --font-oswald: 'Oswald';
 
     --nav-height: 80px;
 
