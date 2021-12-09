@@ -1,10 +1,12 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import styled from 'styled-components';
+import sr from '../../styles/sr';
+
 import { recipeReducer, initialState } from '../createRecipe/recipeReducer/index';
 import { StepOne, StepTwo, StepThree, ProgressBar } from '../createRecipe';
 
 const StyledContainer = styled.div`
-  height: 130vh;
+  height: 100vh;
 
   .add-nav {
     display: flex;
@@ -58,25 +60,19 @@ const StyledContainer = styled.div`
     justify-content: center;
     align-items: center;
   }
-
-  .inserts {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    justify-content: center;
-    padding: var(--p-recipe);
-
-    div:last-of-type {
-      padding-right: 0px;
-    }
-
-    @media (max-width: 800px) {
-      flex-direction: column;
-    }
-  }
 `;
 
+export type State = {
+  step: number;
+  title: string;
+  ingredientsList: [
+    {
+      name: string;
+      quantity: string;
+    },
+  ];
+  description: string[];
+};
 
 export type Dispatch = () => void;
 
@@ -86,34 +82,26 @@ export const DispatchContext = React.createContext<any>(() => {});
 const CreateRecipe: React.FC = () => {
   const [state, dispatch] = useReducer(recipeReducer, initialState);
   const { step, title } = state;
+  const targetRef = useRef(null);
 
-  const viewStep = (id: number) => {
-    switch (id) {
-      case 1:
-        return <StepTwo dispatch={dispatch} state={state} />;
-      case 2:
-        return <StepThree dispatch={dispatch} state={state} />;
-      default:
-        return <StepOne dispatch={dispatch} state={state} />;
-    }
-  };
+  useEffect(() => {
+    sr(targetRef.current);
+  }, []);
 
   return (
-    <StyledContainer>
-      <div className="add-recipe-grid">
-        <div className="header-background">
-          <div className="header">
-            <h2>Create Recipe</h2>
-            <p>{state.title}</p>
-          </div>
-        </div>
-        {viewStep(state.step)}
+    <StyledContainer ref={targetRef}>
       <DispatchContext.Provider value={dispatch}>
         <StateContext.Provider value={state}>
+          <div className="add-recipe-grid">
+            <div className="header-background">
+              <div className="header">
+                <h2>Create Recipe</h2>
+                <p>{title}</p>
+              </div>
+            </div>
+            {step === 0 ? <StepOne /> : step === 1 ? <StepTwo /> : <StepThree />}
             <ProgressBar step={step} />
           </div>
-        </div>
-      </div>
         </StateContext.Provider>
       </DispatchContext.Provider>
     </StyledContainer>

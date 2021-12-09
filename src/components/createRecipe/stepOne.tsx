@@ -21,6 +21,23 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
     font-size: var(--fs-xs);
   }
 
+  .inserts {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: center;
+    padding: var(--p-recipe);
+
+    div:last-of-type {
+      padding-right: 0px;
+    }
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+  }
+
   .ingredients {
     min-width: 800px;
     display: flex;
@@ -29,9 +46,6 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
     justify-content: center;
     padding-left: 70px;
     padding-top: 50px;
-
-    div {
-    }
 
     div:last-of-type {
       padding-right: 0px;
@@ -128,10 +142,11 @@ const StepOne: React.FC = () => {
                 dispatch({ type: ACTIONS.DELETE_INGREDIENT, payload: { id: item.id } })
               }
               item={item}
+            />
           ))}
       </ul>
     </StyledAddInserts>
   );
 };
 
-export default AddIngredients;
+export default StepOne;

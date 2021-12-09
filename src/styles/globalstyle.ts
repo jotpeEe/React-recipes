@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     background-color: var(--white);
     color: var(--black);
@@ -112,9 +112,15 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  ul {
+    list-style-type: none;
+  }
+
   #root {
     min-height: 100vh;
   }
+
+  
 `;
 
 export default GlobalStyle;

@@ -30,7 +30,9 @@ const AddIngredients: React.FC = () => {
   const [description, setDescription] = useState<string[]>([]);
 
   useEffect(() => {
+    // animation on re-render
     sr(targetRef.current);
+    // updates description array only if there's new input
     setDescription([
       input1 ? input1 : state.description[0],
       input2 ? input2 : state.description[1],
@@ -38,11 +40,6 @@ const AddIngredients: React.FC = () => {
       input4 ? input4 : state.description[3],
     ]);
   }, [input1, input2, input3, input4, state.description]);
-
-  const handleClick = () => {
-    dispatch({ type: ACTIONS.ADD_DESCRIPTION, payload: { description: description } });
-    dispatch({ type: ACTIONS.SET_STEP, payload: 2 });
-  };
 
   return (
     <StyledAddInserts ref={targetRef}>
@@ -56,7 +53,12 @@ const AddIngredients: React.FC = () => {
         </div>
         <div className="step-form"></div>
         <div className="button">
-          <Button onClick={handleClick} variant="contained">
+          <Button
+            onClick={() => {
+              dispatch({ type: ACTIONS.ADD_DESCRIPTION, payload: { description: description } });
+              dispatch({ type: ACTIONS.SET_STEP, payload: 2 });
+            }}
+            variant="contained">
             NEXT
           </Button>
         </div>

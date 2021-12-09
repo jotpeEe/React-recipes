@@ -1,4 +1,4 @@
-export interface ActionsProps {
+interface ActionsProps {
   ADD_INGREDIENT: string;
   EDIT_INGREDIENT: string;
   ADD_DESCRIPTION: string;
