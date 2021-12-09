@@ -80,9 +80,12 @@ const StyledContainer = styled.div`
 
 export type Dispatch = () => void;
 
+export const StateContext = React.createContext<any>('');
+export const DispatchContext = React.createContext<any>(() => {});
 
 const CreateRecipe: React.FC = () => {
   const [state, dispatch] = useReducer(recipeReducer, initialState);
+  const { step, title } = state;
 
   const viewStep = (id: number) => {
     switch (id) {
@@ -105,10 +108,14 @@ const CreateRecipe: React.FC = () => {
           </div>
         </div>
         {viewStep(state.step)}
+      <DispatchContext.Provider value={dispatch}>
+        <StateContext.Provider value={state}>
             <ProgressBar step={step} />
           </div>
         </div>
       </div>
+        </StateContext.Provider>
+      </DispatchContext.Provider>
     </StyledContainer>
   );
 };

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import sr from '../../styles/sr';
 import { ACTIONS } from './recipeReducer';
+import { DispatchContext, StateContext } from '../pages/createRecipe';
 
 import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
@@ -78,16 +79,13 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
   }
 `;
 
-interface AddTitProps {
-  dispatch: any;
-  state: any;
-}
-
-const AddIngredients: React.FC<AddTitProps> = ({ dispatch, state }) => {
-  const targetRef = useRef(null);
-  const [ingredient, setIngredient] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [title, setTitle] = useState('Recipe title');
+const StepOne: React.FC = () => {
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const [name, setName] = useState<string>('');
+  const [quantity, setQuantity] = useState<string>('');
+  const [title, setTitle] = useState<string>('Recipe title');
 
   useEffect(() => {
     setTitle(title !== 'Recipe title' ? title : state.title);

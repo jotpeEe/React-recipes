@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import sr from '../../styles/sr';
 import { ACTIONS } from './recipeReducer';
+import { DispatchContext, StateContext } from '../pages/createRecipe';
 
 const StyledAddInserts = styled.div`
   display: flex;
@@ -31,7 +32,9 @@ interface AddIngredientsProps {
   state: any;
 }
 
-const AddIngredients: React.FC<AddIngredientsProps> = ({ dispatch, state }) => {
+const AddIngredients: React.FC = () => {
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
   const targetRef = useRef(null);
   const [input1, setInput1] = useState<string>('');
   const [input2, setInput2] = useState<string>('');
