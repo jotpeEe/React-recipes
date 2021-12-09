@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import TextFieldMultiline from '../material/textFieldMultiline';
 import sr from '../../styles/sr';
 import { ACTIONS } from './recipeReducer';
 import { DispatchContext, StateContext } from '../pages/createRecipe';
@@ -17,20 +17,7 @@ const StyledAddInserts = styled.div`
     align-items: center;
     width: 200px;
   }
-
-  .MuiTextField-root {
-    padding: var(--p-recipe);
-  }
-
-  .MuiInputLabel-root {
-    padding: var(--p-recipe);
-  }
 `;
-
-interface AddIngredientsProps {
-  dispatch: any;
-  state: any;
-}
 
 const AddIngredients: React.FC = () => {
   const state = useContext(StateContext);
@@ -74,40 +61,25 @@ const AddIngredients: React.FC = () => {
           </Button>
         </div>
       </div>
-      <TextField
-        id="standard-multiline-static"
-        multiline
-        rows={4}
-        variant="standard"
+      <TextFieldMultiline
+        onChange={(e: { target: { value: string } }) => setInput1(e.target.value)}
+        defaultValue={state.description[0] ? state.description[0] : input1}
         label="Step 1"
-        placeholder={state.description[0] ? state.description[0] : input1}
-        onChange={e => setInput1(e.target.value)}
       />
-      <TextField
-        id="standard-multiline-static"
-        multiline
-        rows={4}
-        variant="standard"
+      <TextFieldMultiline
+        defaultValue={state.description[1] ? state.description[1] : input2}
+        onChange={(e: { target: { value: string } }) => setInput2(e.target.value)}
         label="Step 2"
-        placeholder={state.description[1] ? state.description[1] : input2}
-        onChange={e => setInput2(e.target.value)}
       />
-      <TextField
-        id="standard-multiline-static"
-        multiline
-        rows={4}
-        variant="standard"
-        label="Step 3"
-        placeholder={state.description[2] ? state.description[2] : input3}
-        onChange={e => setInput3(e.target.value)}
+      <TextFieldMultiline
+        defaultValue={state.description[2] ? state.description[2] : input3}
+        onChange={(e: { target: { value: string } }) => setInput3(e.target.value)}
+        label="Step3"
       />
-      <TextField
-        id="standard-multiline-static"
-        multiline
-        rows={4}
-        variant="standard"
-        placeholder={state.description[3] ? state.description[3] : input4}
-        onChange={e => setInput4(e.target.value)}
+      <TextFieldMultiline
+        label="Step4"
+        defaultValue={state.description[3] ? state.description[3] : input4}
+        onChange={(e: { target: { value: string } }) => setInput4(e.target.value)}
       />
     </StyledAddInserts>
   );

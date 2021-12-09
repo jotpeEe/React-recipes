@@ -4,16 +4,10 @@ import sr from '../../styles/sr';
 import { ACTIONS } from './recipeReducer';
 import { DispatchContext, StateContext } from '../pages/createRecipe';
 
-import TextField from '@mui/material/TextField';
-import AddIcon from '@mui/icons-material/Add';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ListItemText from '@mui/material/ListItemText';
+import TextField from '../material/textField';
+import ListItem from '../material/listItem';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
+import IconButton from '../material/iconButton';
 
 const StyledAddInserts = styled.div<{ active: boolean }>`
   display: flex;
@@ -43,15 +37,6 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
       padding-right: 0px;
     }
 
-    .MuiButtonBase-root {
-      width: 70px;
-
-      @media (max-width: 800px) {
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
     @media (max-width: 800px) {
       flex-direction: column;
       min-width: initial;
@@ -65,17 +50,6 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0 var(--p-recipe-right);
-
-    li {
-      grid-column-start: 1;
-      width: 100%;
-      border-right: 1px solid var(--gray);
-      border-bottom: 6px solid var(--light-green);
-
-      :nth-of-type(even) {
-        grid-column-start: 2;
-      }
-    }
   }
 `;
 
@@ -115,71 +89,45 @@ const StepOne: React.FC = () => {
       </div>
       <div className="inserts">
         <TextField
-          onChange={e => setTitle(e.target.value)}
-          id="standard-basic"
+          onChange={(e: { target: { value: string } }) => setTitle(e.target.value)}
           label={'Recipe title'}
           placeholder={state.title ? state.title : title}
-          fullWidth
-          variant="standard"
         />
       </div>
       <div className="ingredients">
         <TextField
-          onChange={e => setIngredient(e.target.value)}
-          id="standard-basic"
+          onChange={(e: { target: { value: string } }) => setName(e.target.value)}
           label="Type of ingredient"
-          variant="standard"
-          fullWidth
         />
         <TextField
-          onChange={e => setQuantity(e.target.value)}
-          id="standard-basic"
+          onChange={(e: { target: { value: string } }) => setQuantity(e.target.value)}
           label="Quantity"
-          variant="standard"
-          fullWidth
         />
-        <Tooltip title="Add">
-          <IconButton
-            onClick={() => {
-              if (!ingredient || !quantity) return;
-              dispatch({
-                type: ACTIONS.ADD_INGREDIENT,
-                payload: {
-                  ingredient: {
-                    id: Date.now(),
-                    name: ingredient,
-                    quantity: quantity,
-                  },
+        <IconButton
+          onClick={() => {
+            if (!name || !quantity) return;
+            dispatch({
+              type: ACTIONS.ADD_INGREDIENT,
+              payload: {
+                ingredient: {
+                  id: Date.now(),
+                  name: name,
+                  quantity: quantity,
                 },
-              });
-            }}
-            aria-label="add"
-            size="small">
-            <AddIcon />
-          </IconButton>
-        </Tooltip>
+              },
+            });
+          }}
+        />
       </div>
       <ul className="item-list">
         {state.ingredientsList &&
           state.ingredientsList.map((item: any, idx: number) => (
             <ListItem
               key={idx}
-              secondaryAction={
-                <Tooltip title="delete">
-                  <IconButton
-                    onClick={() =>
-                      dispatch({ type: ACTIONS.DELETE_INGREDIENT, payload: { id: item.id } })
-                    }
-                    edge="end">
-                    <DeleteIcon />
-                  </IconButton>
-                </Tooltip>
-              }>
-              <ListItemIcon>
-                <FastfoodIcon />
-              </ListItemIcon>
-              <ListItemText primary={item.name} secondary={item.quantity} />
-            </ListItem>
+              onClick={() =>
+                dispatch({ type: ACTIONS.DELETE_INGREDIENT, payload: { id: item.id } })
+              }
+              item={item}
           ))}
       </ul>
     </StyledAddInserts>
