@@ -74,8 +74,6 @@ export type State = {
   description: string[];
 };
 
-export type Dispatch = () => void;
-
 export const StateContext = React.createContext<any>('');
 export const DispatchContext = React.createContext<any>(() => {});
 

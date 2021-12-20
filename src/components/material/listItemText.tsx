@@ -1,12 +1,12 @@
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import styled from 'styled-components';
+import Paper from '@mui/material/Paper';
 
 const StyledListItem = styled(ListItem)`
   padding-top: 0px;
   padding-bottom: 0px;
-  text-align: right;
-  font-family: var(--font-oswald);
+  text-align: center;
 
   .MuiListItemText-multiline {
     margin-top: 0px;
@@ -14,6 +14,7 @@ const StyledListItem = styled(ListItem)`
 
   .MuiListItemText-primary {
     font-size: var(--fs-xs);
+    font-family: var(--font-oswald);
   }
 
   .MuiListItemText-secondary {
@@ -24,9 +25,11 @@ const StyledListItem = styled(ListItem)`
 const listItemText = (props: any) => {
   const { primary, secondary } = props;
   return (
-    <StyledListItem>
-      <ListItemText primary={primary} secondary={secondary} />
-    </StyledListItem>
+    <Paper>
+      <StyledListItem>
+        <ListItemText primary={primary} secondary={secondary} />
+      </StyledListItem>
+    </Paper>
   );
 };
 
