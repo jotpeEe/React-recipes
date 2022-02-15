@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--black);
     font-family: var(--font-sans);
     font-size: var(--fs-xs);
-    line-height: 1.3;
 
     @media (max-width: 480px) {
       font-size: var(--fs-lg);
@@ -44,6 +43,11 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
     color: var(--black);
     line-height: 1.1;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: var(--fs-lg);
   }
 
   .big-heading {
@@ -105,6 +109,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0 0 15px 0;
+    font-size: var(--fs-sm);
 
     &:last-child,
     &:last-of-type {

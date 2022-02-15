@@ -12,13 +12,14 @@ const variables = css`
     --green: hsl(175, 100%, 15%);
     --light-green: hsl(186, 100%, 27%);
     --light-gray: hsl(185, 12%, 57%);
-    --font-sans: sans-serif;
-    --font-oswald: 'Oswald';
+    --font-sans: 'Roboto Condensed', sans-serif;
 
     --nav-height: 80px;
 
     --p-recipe: 50px 70px 0px 70px;
     --p-recipe-right: 70px;
+
+    --divider-margin: 0px 15px;
 
     --fs-xxs: 12px;
     --fs-xs: 13px;

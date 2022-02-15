@@ -44,6 +44,7 @@ const StyledProgressBar = styled.div`
 `;
 
 const ListItem = styled.li<{ active: boolean }>`
+  transition: background-color 1s ease-in-out;
   background-color: ${props => (props.active ? 'var(--light-green)' : 'var(--white)')};
   border: 2px solid var(--gray);
   border-radius: 100px;
@@ -62,6 +63,7 @@ const Divider = styled.div<{ active: boolean }>`
     position: absolute;
     left: 0;
     bottom: 5px;
+    transition: background-color 1s ease-in-out;
     background-color: ${props => (props.active ? 'var(--light-green)' : 'var(--gray)')};
     height: 2px;
     z-index: 0;
@@ -70,6 +72,7 @@ const Divider = styled.div<{ active: boolean }>`
 `;
 
 const SliderText = styled.p<{ active: boolean }>`
+  transition: color 1s ease-in-out;
   color: ${props => (props.active ? 'var(--black)' : 'var(--gray)')};
   padding: 0px;
   margin: 0;
