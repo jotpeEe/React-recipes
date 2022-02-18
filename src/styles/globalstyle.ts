@@ -25,11 +25,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--white);
     color: var(--black);
     font-family: var(--font-sans);
-    font-size: var(--fs-xs);
-
-    @media (max-width: 480px) {
-      font-size: var(--fs-lg);
-    }
 
   }
 
@@ -43,21 +38,11 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
     color: var(--black);
     line-height: 1.1;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
 
   h2 {
     font-size: var(--fs-lg);
-  }
-
-  .big-heading {
-    margin: 0;
-    font-size: clamp(40px, 8vw, 80px);
-  }
-
-  .medium-heading {
-    margin: 0;
-    font-size: clamp(40px, 8vw, 60px);
   }
 
   img,

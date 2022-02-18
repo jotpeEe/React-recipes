@@ -21,7 +21,7 @@ const StepThree: React.FC = () => {
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
   const { title, description, ingredientsList } = state;
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     sr(targetRef.current);

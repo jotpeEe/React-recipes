@@ -46,9 +46,13 @@ const StyledPaper = styled(Paper)`
   }
 `;
 
-const Recipe = (props: any) => {
-  const { title, ingredientsList, description } = props;
+type RecipeProps = {
+  title: string;
+  ingredientsList: object[];
+  description: string[];
+};
 
+const Recipe: React.FC<RecipeProps> = ({ title, ingredientsList, description }) => {
   return (
     <StyledPaper elevation={5}>
       <div className="recipe-grid">
@@ -57,9 +61,11 @@ const Recipe = (props: any) => {
         </div>
         <ul className="ingredients">
           {ingredientsList &&
-            ingredientsList.map((item: { name: string; quantity: string }, idx: number) => (
-              <ListItemText key={idx} primary={item.name} secondary={item.quantity} />
-            ))}
+            ingredientsList.map(
+              (item: { id?: number; name?: string; quantity?: string }, idx: number) => (
+                <ListItemText key={idx} primary={item.name} secondary={item.quantity} />
+              ),
+            )}
         </ul>
         <div className="steps">
           {description && description.map((item: string, idx: number) => <p key={idx}>{item}</p>)}

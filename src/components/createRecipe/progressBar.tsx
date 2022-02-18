@@ -78,8 +78,11 @@ const SliderText = styled.p<{ active: boolean }>`
   margin: 0;
 `;
 
-const progressBar = (props: any) => {
-  const { step } = props;
+type ProgressBarProps = {
+  step: number;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ step }) => {
   return (
     <StyledProgressBar>
       <ul className="bar">
@@ -98,4 +101,4 @@ const progressBar = (props: any) => {
   );
 };
 
-export default progressBar;
+export default ProgressBar;

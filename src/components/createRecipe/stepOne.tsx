@@ -135,15 +135,17 @@ const StepOne: React.FC = () => {
       </div>
       <ul className="item-list">
         {state.ingredientsList &&
-          state.ingredientsList.map((item: any, idx: number) => (
-            <ListItem
-              key={idx}
-              onClick={() =>
-                dispatch({ type: ACTIONS.DELETE_INGREDIENT, payload: { id: item.id } })
-              }
-              item={item}
-            />
-          ))}
+          state.ingredientsList.map(
+            (item: { id?: number; name?: string; quantity?: string }, idx: number) => (
+              <ListItem
+                key={idx}
+                onClick={() =>
+                  dispatch({ type: ACTIONS.DELETE_INGREDIENT, payload: { id: item.id } })
+                }
+                item={item}
+              />
+            ),
+          )}
       </ul>
     </StyledAddInserts>
   );

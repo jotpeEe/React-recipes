@@ -65,22 +65,17 @@ const StyledContainer = styled.div`
 export type State = {
   step: number;
   title: string;
-  ingredientsList: [
-    {
-      name: string;
-      quantity: string;
-    },
-  ];
+  ingredientsList: object[];
   description: string[];
 };
 
-export const StateContext = React.createContext<any>('');
+export const StateContext = React.createContext<State>(initialState);
 export const DispatchContext = React.createContext<any>(() => {});
 
 const CreateRecipe: React.FC = () => {
   const [state, dispatch] = useReducer(recipeReducer, initialState);
   const { step, title } = state;
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     sr(targetRef.current);
