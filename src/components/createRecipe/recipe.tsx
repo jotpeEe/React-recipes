@@ -47,8 +47,9 @@ const StyledPaper = styled(Paper)`
 `;
 
 type RecipeProps = {
+  step?: number;
   title: string;
-  ingredientsList: object[];
+  ingredientsList: object[]; 
   description: string[];
 };
 
@@ -67,9 +68,7 @@ const Recipe: React.FC<RecipeProps> = ({ title, ingredientsList, description }) 
               ),
             )}
         </ul>
-        <div className="steps">
-          {description && description.map((item: string, idx: number) => <p key={idx}>{item}</p>)}
-        </div>
+        {description && description.map((item: string, idx: number) => <p key={idx}>{item}</p>)}
       </div>
     </StyledPaper>
   );

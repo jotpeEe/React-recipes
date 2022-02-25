@@ -80,7 +80,7 @@ const SliderText = styled.p<{ active: boolean }>`
 
 type ProgressBarProps = {
   step: number;
-}
+};
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ step }) => {
   return (

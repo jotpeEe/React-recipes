@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useRef } from 'react';
 import styled from 'styled-components';
 import sr from '../../styles/sr';
 
-import { recipeReducer, initialState } from '../createRecipe/recipeReducer/index';
+import { recipeReducer, initialState } from '../createRecipe/recipeReducer';
 import { StepOne, StepTwo, StepThree, ProgressBar } from '../createRecipe';
 
 const StyledContainer = styled.div`
@@ -26,7 +26,7 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
 
     .header-background {
       background-color: var(--green);
@@ -62,14 +62,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-export type State = {
-  step: number;
-  title: string;
-  ingredientsList: object[];
-  description: string[];
-};
-
-export const StateContext = React.createContext<State>(initialState);
+export const StateContext = React.createContext<typeof initialState>(initialState);
 export const DispatchContext = React.createContext<any>(() => {});
 
 const CreateRecipe: React.FC = () => {

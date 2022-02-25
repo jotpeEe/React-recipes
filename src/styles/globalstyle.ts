@@ -8,19 +8,19 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-    width: 100%;
   }
 
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+}
 
   body {
     margin: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     -webkit-font-smoothing: antialiased;
     background-color: var(--white);
     color: var(--black);
@@ -93,7 +93,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    margin: 0 0 15px 0;
     font-size: var(--fs-sm);
 
     &:last-child,
