@@ -52,10 +52,40 @@ const StyledHome = styled.div`
   }
 
   .content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
     height: 65vh;
     max-width: 800px;
     margin: 0 auto;
+
+    .recipe-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .first-container {
+      grid-row: span 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 25px;
+      padding: 15px 0;
+    }
+
+    .second-container {
+      grid-row: 5 / 7;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 25px;
+      padding: 15px 0;
+    }
   }
 
   .footer {
@@ -128,7 +158,29 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="content"></div>
+      <div className="content">
+        <div className="recipe-nav">
+          <h4>RECIPES</h4>
+          <div className="buttons">
+            <div className="add">ADD</div>
+            <h4 className="view-all">VIEW ALL</h4>
+          </div>
+        </div>
+        <div className="first-container">
+          <Recipe />
+          <Recipe />
+          <Recipe />
+          <Recipe />
+        </div>
+        <div className="recipe-nav">
+          <h4>RANDOM RECIPE</h4>
+          <h4 className="view-all">LAST ADDED</h4>
+        </div>
+        <div className="second-container">
+          <Recipe />
+          <Recipe />
+        </div>
+      </div>
       <div className="footer"></div>
     </StyledHome>
   );
