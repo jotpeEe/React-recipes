@@ -12,6 +12,9 @@ const variables = css`
     --green: hsl(175, 100%, 15%);
     --light-green: hsl(186, 100%, 27%);
     --light-gray: hsl(185, 12%, 57%);
+
+    --border-gray: #cdcdcd;
+
     --font-sans: 'Roboto Condensed', sans-serif;
 
     --nav-height: 80px;
