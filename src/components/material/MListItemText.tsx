@@ -22,7 +22,7 @@ const StyledListItem = styled(ListItem)`
   }
 `;
 
-const listItemText = (props: any) => {
+const MListItemText = (props: any) => {
   const { primary, secondary } = props;
   return (
     <Paper>
@@ -33,4 +33,4 @@ const listItemText = (props: any) => {
   );
 };
 
-export default listItemText;
+export default MListItemText;

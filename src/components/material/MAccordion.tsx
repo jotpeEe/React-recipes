@@ -4,7 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const accordion = (props: any) => {
+const MAccordion = (props: any) => {
   const { description, idx } = props;
   return (
     <Accordion>
@@ -19,4 +19,4 @@ const accordion = (props: any) => {
   );
 };
 
-export default accordion;
+export default MAccordion;

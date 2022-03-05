@@ -19,7 +19,7 @@ const StyledListItem = styled(ListItem)`
   }
 `;
 
-const listItem = (props: any) => {
+const MListItem = (props: any) => {
   const { onClick, item } = props;
   return (
     <StyledListItem
@@ -38,4 +38,4 @@ const listItem = (props: any) => {
   );
 };
 
-export default listItem;
+export default MListItem;

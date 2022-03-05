@@ -10,7 +10,7 @@ const StyledTextField = styled(TextField)`
   }
 `;
 
-const textFieldMultiline = (props: any) => {
+const MTextFieldMultiline = (props: any) => {
   const { onChange, placeholder, label, defaultValue } = props;
   return (
     <StyledTextField
@@ -26,4 +26,4 @@ const textFieldMultiline = (props: any) => {
   );
 };
 
-export default textFieldMultiline;
+export default MTextFieldMultiline;

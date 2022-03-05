@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 
-const textField = (props: any) => {
+const MTextField = (props: any) => {
   const { onChange, label, placeholder } = props;
   return (
     <TextField
@@ -14,4 +14,4 @@ const textField = (props: any) => {
   );
 };
 
-export default textField;
+export default MTextField;

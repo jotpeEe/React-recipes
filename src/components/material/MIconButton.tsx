@@ -13,7 +13,7 @@ const StyledIconButton = styled(IconButton)`
   }
 `;
 
-const iconButton = (props: any) => {
+const MIconButton = (props: any) => {
   const { onClick } = props;
   return (
     <Tooltip title="Add">
@@ -24,4 +24,4 @@ const iconButton = (props: any) => {
   );
 };
 
-export default iconButton;
+export default MIconButton;
