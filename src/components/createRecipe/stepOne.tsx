@@ -4,10 +4,10 @@ import sr from '../../styles/sr';
 import { ACTIONS } from './recipeReducer';
 import { DispatchContext, StateContext } from '../pages/createRecipe';
 
-import TextField from '../material/textField';
-import ListItem from '../material/listItem';
+import TextField from '../material/MTextField';
+import ListItem from '../material/MListItem';
 import Button from '@mui/material/Button';
-import IconButton from '../material/iconButton';
+import MIconButton from '../material/MIconButton';
 
 const StyledAddInserts = styled.div<{ active: boolean }>`
   display: flex;
@@ -117,7 +117,7 @@ const StepOne: React.FC = () => {
           onChange={(e: { target: { value: string } }) => setQuantity(e.target.value)}
           label="Quantity"
         />
-        <IconButton
+        <MIconButton
           onClick={() => {
             if (!name || !quantity) return;
             dispatch({

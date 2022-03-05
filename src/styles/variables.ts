@@ -22,6 +22,7 @@ const variables = css`
     --p-recipe: 50px 70px 0px 70px;
     --p-recipe-right: 70px;
 
+    --section-width: 800px;
     --divider-margin: 0px 15px;
 
     --fs-xxs: 12px;

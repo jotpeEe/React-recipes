@@ -6,27 +6,12 @@ const GlobalStyle = createGlobalStyle`
   ${variables};
   ${fonts};
 
-  html {
-    box-sizing: border-box;
-  }
-
   * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
 }
-
-  body {
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    -webkit-font-smoothing: antialiased;
-    background-color: var(--white);
-    color: var(--black);
-    font-family: var(--font-sans);
-
-  }
 
   h1,
   h2,

@@ -32,8 +32,6 @@ const StyledPost = styled.div`
   }
 
   .blog-social-container {
-    border: none !important;
-    padding: 0;
     text-align: center;
     position: relative;
     width: 100%;

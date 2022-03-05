@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ListItemText from '../material/listItemText';
+import ListItemText from '../material/MListItemText';
 import Paper from '@mui/material/Paper';
 
 const StyledPaper = styled(Paper)`
@@ -49,7 +49,7 @@ const StyledPaper = styled(Paper)`
 type RecipeProps = {
   step?: number;
   title: string;
-  ingredientsList: object[]; 
+  ingredientsList: object[];
   description: string[];
 };
 
