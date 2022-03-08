@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
-import MTextFieldMultiline from '../material/MTextFieldMultiline';
-import sr from '../../styles/sr';
-import { ACTIONS } from './recipeReducer';
-import { DispatchContext, StateContext } from '../pages/createRecipe';
+import MTextFieldMultiline from '../../material-ui/MTextFieldMultiline';
+import sr from '../../../styles/sr';
+import { ACTIONS } from './reducer';
+import { DispatchContext, StateContext } from '.';
 
 const StyledAddInserts = styled.div`
   display: flex;

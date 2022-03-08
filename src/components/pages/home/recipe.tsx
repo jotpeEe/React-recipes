@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Rating from '../material/MRating';
+import Rating from '../../material-ui/MRating';
 
 const StyledRecipe = styled.a`
   display: flex;

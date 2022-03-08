@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
-import sr from '../../styles/sr';
-import { ACTIONS } from './recipeReducer';
-import { DispatchContext, StateContext } from '../pages/createRecipe';
+import sr from '../../../styles/sr';
+import { ACTIONS } from './reducer';
+import { DispatchContext, StateContext } from '.';
 import Recipe from './recipe';
 
 const StyledAddInserts = styled.div`

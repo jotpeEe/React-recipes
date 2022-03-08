@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../Home/header';
-import Content from '../Home/content';
+import Header from './header';
+import Content from './content';
 // import GlobalStyle from '../../styles/globalstyle';
 // import { ThemeProvider } from '@mui/material/styles';
 // import theme from '../../styles/theme';

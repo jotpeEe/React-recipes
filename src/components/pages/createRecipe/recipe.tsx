@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ListItemText from '../material/MListItemText';
+import ListItemText from '../../material-ui/MListItemText';
 import Paper from '@mui/material/Paper';
 
 const StyledPaper = styled(Paper)`

@@ -1,9 +1,13 @@
 import React, { useEffect, useReducer, useRef } from 'react';
 import styled from 'styled-components';
-import sr from '../../styles/sr';
+import sr from '../../../styles/sr';
 
-import { recipeReducer, initialState } from '../createRecipe/recipeReducer';
-import { StepOne, StepTwo, StepThree, ProgressBar } from '../createRecipe';
+import { recipeReducer } from './reducer';
+import initialState from './initialState';
+import StepOne from './stepOne';
+import StepTwo from './stepTwo';
+import StepThree from './stepThree';
+import ProgressBar from './progressBar';
 
 const StyledContainer = styled.div`
   height: 100vh;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Icon from '../icons/icon';
+import Icon from '../../icons/icon';
 
 const StyledHeader = styled.header`
   display: grid;

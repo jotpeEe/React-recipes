@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
-import sr from '../../styles/sr';
-import { ACTIONS } from './recipeReducer';
-import { DispatchContext, StateContext } from '../pages/createRecipe';
+import sr from '../../../styles/sr';
 
-import TextField from '../material/MTextField';
-import ListItem from '../material/MListItem';
+import { ACTIONS } from './reducer';
+import { DispatchContext, StateContext } from '.';
+import TextField from '../../material-ui/MTextField';
+import ListItem from '../../material-ui/MListItem';
 import Button from '@mui/material/Button';
-import MIconButton from '../material/MIconButton';
+import MIconButton from '../../material-ui/MIconButton';
 
 const StyledAddInserts = styled.div<{ active: boolean }>`
   display: flex;

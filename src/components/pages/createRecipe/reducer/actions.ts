@@ -1,11 +1,11 @@
-interface ActionsProps {
+type ActionsProps = {
   ADD_INGREDIENT: string;
   EDIT_INGREDIENT: string;
   ADD_DESCRIPTION: string;
   DELETE_INGREDIENT: string;
   SET_TITLE: string;
   SET_STEP: string;
-}
+};
 
 export const ACTIONS: ActionsProps = {
   ADD_INGREDIENT: 'add-ingredient',

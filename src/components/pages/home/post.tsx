@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Icon from '../icons/icon';
+import Icon from '../../icons/icon';
 
 const StyledPost = styled.div`
   display: flex;
@@ -12,7 +12,6 @@ const StyledPost = styled.div`
 
   img {
     padding-top: 40px;
-    width: 100%;
   }
 
   .blog-info {
@@ -28,14 +27,17 @@ const StyledPost = styled.div`
 
   & > *,
   p {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
+  }
+
+  & > *:last-of-type {
+    margin-bottom: 0px;
   }
 
   .blog-social-container {
     text-align: center;
     position: relative;
     width: 100%;
-    clear: none;
 
     .blog-social {
       display: inline-block;
@@ -67,7 +69,13 @@ const StyledPost = styled.div`
   }
 `;
 
-type PostProps = any;
+type PostProps = {
+  author?: string;
+  date?: number;
+  title?: string;
+  content?: string;
+  img?: string;
+};
 
 const tit = 'LOREM IPSUM, DOLOR SIT AMET CONSECUTOR ADISICIPING.';
 
