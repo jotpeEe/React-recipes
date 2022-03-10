@@ -12,20 +12,6 @@ import ProgressBar from './progressBar';
 const StyledContainer = styled.div`
   height: 100vh;
 
-  .add-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 50px;
-
-    .step-info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-  }
-
   .add-recipe-grid {
     display: flex;
     flex-direction: column;
@@ -49,20 +35,6 @@ const StyledContainer = styled.div`
         color: var(--white);
       }
     }
-  }
-
-  .button {
-    padding-right: var(--p-recipe-right);
-  }
-
-  .step-number {
-    display: flex;
-    height: 70px;
-    width: 70px;
-    font-size: 46px;
-    color: var(--light-green);
-    justify-content: center;
-    align-items: center;
   }
 `;
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
-import Button from '@mui/material/Button';
+import Title from './title';
 import MTextFieldMultiline from '../../material-ui/MTextFieldMultiline';
 import sr from '../../../styles/sr';
 import { ACTIONS } from './reducer';
@@ -43,26 +43,17 @@ const AddIngredients: React.FC = () => {
 
   return (
     <StyledAddInserts ref={targetRef}>
-      <div className="add-nav">
-        <div className="step-info">
-          <span className="step-number">2</span>
-          <div className="text-cointainer">
-            <h2>How to make it</h2>
-            <p>Please describe in few setps how to make the dish</p>
-          </div>
-        </div>
-        <div className="step-form"></div>
-        <div className="button">
-          <Button
-            onClick={() => {
-              dispatch({ type: ACTIONS.ADD_DESCRIPTION, payload: { description: description } });
-              dispatch({ type: ACTIONS.SET_STEP, payload: 2 });
-            }}
-            variant="contained">
-            NEXT
-          </Button>
-        </div>
-      </div>
+      <Title
+        step={state.step}
+        title="How to make it"
+        subtitle="Please describe in few setps how to make the dish"
+        href="/CreateRecipe/RecipePreview"
+        onClick={() => {
+          dispatch({ type: ACTIONS.ADD_DESCRIPTION, payload: { description: description } });
+          dispatch({ type: ACTIONS.SET_STEP, payload: 2 });
+        }}
+        btnText="NEXT"
+      />
       <MTextFieldMultiline
         onChange={(e: { target: { value: string } }) => setInput1(e.target.value)}
         defaultValue={state.description[0] ? state.description[0] : input1}

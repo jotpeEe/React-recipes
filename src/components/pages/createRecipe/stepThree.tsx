@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
-import Button from '@mui/material/Button';
 import sr from '../../../styles/sr';
 import { ACTIONS } from './reducer';
 import { DispatchContext, StateContext } from '.';
 import Recipe from './recipe';
+import Title from './title';
 
 const StyledAddInserts = styled.div`
   display: flex;
@@ -29,22 +29,17 @@ const StepThree: React.FC = () => {
 
   return (
     <StyledAddInserts ref={targetRef}>
-      <div className="add-nav">
-        <div className="step-info">
-          <span className="step-number">3</span>
-          <div className="text-cointainer">
-            <h2>Preview recipe</h2>
-            <p>Please check details then create recipe</p>
-          </div>
-        </div>
-        <div className="button">
-          <Button
-            onClick={() => dispatch({ type: ACTIONS.SET_STEP, payload: 0 })}
-            variant="contained">
-            CREATE
-          </Button>
-        </div>
-      </div>
+      <Title
+        step={state.step}
+        title="Preview recipe"
+        subtitle="Please check details then create recipe"
+        href="/"
+        onClick={() => {
+          setRecipes([...recipes, state.recipe]);
+          dispatch({ type: ACTIONS.SET_STEP, payload: 0 });
+        }}
+        btnText="CREATE"
+      />
       <Recipe title={title} ingredientsList={ingredientsList} description={description} />
     </StyledAddInserts>
   );
