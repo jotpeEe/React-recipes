@@ -1,16 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Rating from '../../material-ui/MRating';
 
-const StyledRecipe = styled.a`
+const StyledRecipe = styled(Link)`
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 115px;
-  width: 180px;
-  border: 1px solid #cdcdcd;
-  margin-right: auto;
+  height: 190px;
+  width: 25%;
+  border: 1px solid var(--gray);
+  margin-right: 30px;
+
+  &:last-of-type {
+    margin: 0px;
+  }
 
   .inner {
     display: flex;
@@ -18,9 +23,9 @@ const StyledRecipe = styled.a`
     justify-content: center;
     height: 90%;
     width: 90%;
-    background-color: white;
-    border: 1px solid #cdcdcd;
-    background-image: url(https://picsum.photos/180/115);
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    background-image: url(https://picsum.photos/320/190);
     background-position: center;
     transition: all 0.2s ease-in-out;
     z-index: 1000;
@@ -34,13 +39,14 @@ const StyledRecipe = styled.a`
 
     .title {
       display: flex;
-      align-items: center;
       justify-content: center;
-      height: 30px;
-      width: 120px;
-      background-color: white;
-      font-size: 10px;
+      align-items: center;
+      font-size: var(--fs-xxs);
       font-weight: bold;
+      height: 40px;
+      background-color: var(--white);
+      padding: 0 15px;
+      margin: 0;
     }
   }
 
@@ -50,14 +56,15 @@ const StyledRecipe = styled.a`
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 15px;
-    width: 120px;
-    background-color: white;
-    bottom: -5%;
-  }
+    height: 20px;
+    bottom: -6%;
 
-  &:last-of-type {
-    margin-right: 0;
+    & > span {
+      position: relative;
+      background-color: var(--white);
+      width: 100%;
+      padding: 2px 15px;
+    }
   }
 `;
 
@@ -68,7 +75,7 @@ type RecipeProps = {
 
 const Recipe: React.FC<RecipeProps> = ({ href = '/', title = 'CHINESE CHICKEN' }) => {
   return (
-    <StyledRecipe href={href}>
+    <StyledRecipe to={href}>
       <div className="inner">
         <h5 className="title">{title}</h5>
         <div className="description">

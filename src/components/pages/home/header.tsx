@@ -15,8 +15,45 @@ const StyledHeader = styled.header`
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    min-width: 800px;
+    min-width: var(--section-width);
     margin: 0 auto;
+
+    a {
+      opacity: 0.8;
+      padding: 15px;
+      margin: 0 20px;
+
+      h5 {
+        line-height: 24px;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: 0px;
+          left: 0;
+          background-color: var(--bright-green);
+          visibility: hidden;
+          transform: scaleX(0);
+          transition: all 0.3s ease-in-out;
+        }
+      }
+
+      &:hover {
+        opacity: 1;
+
+        h5:before {
+          visibility: visible;
+          transform: scaleX(1);
+        }
+      }
+
+      & > * {
+        color: white;
+      }
+    }
 
     & > *:last-of-type {
       margin-right: 0;
@@ -35,7 +72,7 @@ const StyledHeader = styled.header`
     align-items: center;
     height: 100%;
     margin: 0 auto;
-    min-width: 800px;
+    min-width: var(--section-width);
 
     @media (max-width: 800px) {
       min-width: 0px;
@@ -49,44 +86,6 @@ const StyledHeader = styled.header`
     & > .title > h5 {
       color: #357f73;
     }
-  }
-`;
-
-const Link = styled.a`
-  opacity: 0.8;
-  padding: 15px;
-  margin: 0 20px;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  & > * {
-    color: white;
-  }
-`;
-
-const Text = styled.h5`
-  position: relative;
-  margin: 0px;
-  color: white;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background-color: white;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-  }
-
-  ${Link}:hover &, ${Link}:hover &::before {
-    visibility: visible;
-    transform: scaleX(1);
   }
 `;
 

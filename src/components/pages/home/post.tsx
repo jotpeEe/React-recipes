@@ -25,8 +25,8 @@ const StyledPost = styled.div`
   .blog-content {
     text-align: left;
     line-height: 25px;
-    font-family: 'PT Serif', serif;
-    color: #313131;
+    font-family: var(--font-serif);
+    color: var(--black);
   }
 
   & > *,
@@ -46,7 +46,7 @@ const StyledPost = styled.div`
     .blog-social {
       display: inline-block;
       padding: 0 10px;
-      background: #fff;
+      background-color: var(--white);
       z-index: 1;
 
       &:before {

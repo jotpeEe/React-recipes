@@ -14,7 +14,7 @@ const theme = createTheme({
     light: 'hsl(126, 33%, 29%)',
   },
   text: {
-    primary: 'hsl(225, 9%, 9%)',
+    primary: 'hsl(146, 89%, 45%)',
     secondary: '#fff',
   },
 });

@@ -6,8 +6,8 @@ interface CustomTheme {
     light: string;
   };
   text: {
-    primary: 'hsl(225, 9%, 9%)';
-    secondary: '#fff';
+    primary: string;
+    secondary: string;
   };
 }
 declare module '@mui/material/styles' {

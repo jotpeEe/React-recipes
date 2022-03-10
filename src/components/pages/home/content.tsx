@@ -9,7 +9,7 @@ const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 75vh;
-  max-width: 800px;
+  max-width: var(--section-width);
   margin: 0 auto;
 
   .recipe-nav {
@@ -17,10 +17,9 @@ const StyledContent = styled.div`
     padding: 20px 0;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 
-    h4 {
-      margin: 0px;
+    & > h2 {
       color: var(--green);
     }
 
@@ -39,7 +38,7 @@ const StyledContent = styled.div`
     }
   }
 
-  .first-container {
+  .recipes {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +48,7 @@ const StyledContent = styled.div`
     }
   }
 
-  .second-container {
+  .posts {
     grid-row: 5 / 7;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -65,7 +64,7 @@ const Content = () => {
   return (
     <StyledContent>
       <div className="recipe-nav">
-        <h4>RECIPES</h4>
+        <h2>RECIPES</h2>
         <div className="buttons">
           <Link to="/CreateRecipe/AddTitle">
             <Button text="ADD" />
@@ -75,13 +74,13 @@ const Content = () => {
           </Link>
         </div>
       </div>
-      <div className="first-container">
-        <Recipe />
+      <div className="recipes">
+        <Recipe title="SERNIK Z ROSĄ" />
         <Recipe />
         <Recipe />
         <Recipe />
       </div>
-      <div className="second-container">
+      <div className="posts">
         <Post />
       </div>
     </StyledContent>
