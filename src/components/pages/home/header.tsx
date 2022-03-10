@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginIcon from '@mui/icons-material/Login';
 
@@ -93,14 +94,13 @@ const Header = () => {
   return (
     <StyledHeader>
       <nav>
-        <Link href="/" className="link">
-          <Text>RECIPES</Text>
+        <Link to="/">
+          <h5>RECIPES</h5>
         </Link>
-        <Link href="/" className="link">
-          <Text>BLOG</Text>
+        <Link to="/">
+          <h5>BLOG</h5>
         </Link>
-        <Link href="/" className="link">
-          <Icon name="LogIn" />
+        <Link to="/">
           <LoginIcon />
         </Link>
       </nav>

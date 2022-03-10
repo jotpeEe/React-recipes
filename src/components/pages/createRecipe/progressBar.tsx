@@ -1,4 +1,9 @@
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import { DispatchContext, StateContext } from '.';
+import { ACTIONS } from './reducer';
 
 const StyledProgressBar = styled.div`
   display: flex;
@@ -78,19 +83,38 @@ const SliderText = styled.p<{ active: boolean }>`
   margin: 0;
 `;
 
-type ProgressBarProps = {
-  step: number;
-};
+const ProgressBar: React.FC = () => {
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ step }) => {
+  const { step } = state;
+
   return (
     <StyledProgressBar>
       <ul className="bar">
-        <ListItem active={true} />
+        <Link
+          to="/CreateRecipe/AddTitle"
+          onClick={() => {
+            dispatch({ type: ACTIONS.SET_STEP, payload: 0 });
+          }}>
+          <ListItem active={true} />
+        </Link>
         <Divider active={step === 0 ? false : true} />
-        <ListItem active={step === 0 ? false : step === 1 ? true : true} />
+        <Link
+          to="/CreateRecipe/HowToMake"
+          onClick={() => {
+            dispatch({ type: ACTIONS.SET_STEP, payload: 1 });
+          }}>
+          <ListItem active={step === 0 ? false : step === 1 ? true : true} />{' '}
+        </Link>
         <Divider active={step === 0 ? false : step === 1 ? false : true} />
-        <ListItem active={step === 0 ? false : step === 1 ? false : true} />
+        <Link
+          to="/CreateRecipe/RecipePreview"
+          onClick={() => {
+            dispatch({ type: ACTIONS.SET_STEP, payload: 2 });
+          }}>
+          <ListItem active={step === 0 ? false : step === 1 ? false : true} />
+        </Link>
       </ul>
       <div className="bar-text">
         <SliderText active={true}>Add Title</SliderText>

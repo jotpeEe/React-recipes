@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useRef } from 'react';
+import { Outlet, useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
 import sr from '../../../styles/sr';
 
@@ -61,13 +62,27 @@ const CreateRecipe: React.FC = () => {
                 <p>{title}</p>
               </div>
             </div>
-            {step === 0 ? <StepOne /> : step === 1 ? <StepTwo /> : <StepThree />}
-            <ProgressBar step={step} />
+            {/* Renders stepOne / stepTwo / stepThree */}
+            <Outlet context={{ recipes, setRecipes }} />
+            <ProgressBar />
           </div>
         </StateContext.Provider>
       </DispatchContext.Provider>
     </StyledContainer>
   );
 };
-
 export default CreateRecipe;
+
+export function useRecipes() {
+  return useOutletContext<ContextType>();
+}
+
+type CreateRecipeProps = {
+  recipes: RecipeProps[];
+  setRecipes: React.Dispatch<React.SetStateAction<never[]>>;
+};
+
+type ContextType = {
+  recipes: RecipeProps[];
+  setRecipes: React.Dispatch<React.SetStateAction<RecipeProps[]>>;
+};

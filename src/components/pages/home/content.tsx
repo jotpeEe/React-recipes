@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Recipe from './recipe';
 import Post from './post';
+import Button from './button';
 
 const StyledContent = styled.div`
   display: flex;
@@ -24,7 +26,16 @@ const StyledContent = styled.div`
 
     .buttons {
       display: flex;
-      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      & > * {
+        margin-right: 15px;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
     }
   }
 
@@ -56,8 +67,12 @@ const Content = () => {
       <div className="recipe-nav">
         <h4>RECIPES</h4>
         <div className="buttons">
-          <div className="add">ADD</div>
-          <h4 className="view-all">VIEW ALL</h4>
+          <Link to="/CreateRecipe/AddTitle">
+            <Button text="ADD" />
+          </Link>
+          <Link to="/CreateRecipe/AddTitle">
+            <Button text="VIEW ALL" primary />
+          </Link>
         </div>
       </div>
       <div className="first-container">

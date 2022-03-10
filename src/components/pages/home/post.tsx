@@ -112,8 +112,12 @@ const Post: React.FC<PostProps> = ({
           <a href="/">
             <TwitterIcon />
           </a>
+          <a href="/">
             <GoogleIcon />
+          </a>
+          <a href="/">
             <PinterestIcon />
+          </a>
         </nav>
       </div>
     </StyledPost>

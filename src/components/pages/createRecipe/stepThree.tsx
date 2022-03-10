@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import sr from '../../../styles/sr';
+
+import { useRecipes } from '.';
 import { ACTIONS } from './reducer';
 import { DispatchContext, StateContext } from '.';
 import Recipe from './recipe';
@@ -18,6 +20,7 @@ const StyledAddInserts = styled.div`
 `;
 
 const StepThree: React.FC = () => {
+  const { recipes, setRecipes } = useRecipes();
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
   const { title, description, ingredientsList } = state;
