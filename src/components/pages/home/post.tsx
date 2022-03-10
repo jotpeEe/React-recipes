@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Icon from '../../icons/icon';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GoogleIcon from '@mui/icons-material/Google';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 
 const StyledPost = styled.div`
   display: flex;
@@ -100,14 +104,16 @@ const Post: React.FC<PostProps> = ({
       <div className="blog-social-container">
         <nav className="blog-social">
           <a href="/">
-            <Icon name="LogIn" />
+            <FavoriteBorderIcon />
           </a>
           <a href="/">
-            <Icon name="LogIn" />
+            <FacebookIcon />
           </a>
           <a href="/">
-            <Icon name="LogIn" />
+            <TwitterIcon />
           </a>
+            <GoogleIcon />
+            <PinterestIcon />
         </nav>
       </div>
     </StyledPost>

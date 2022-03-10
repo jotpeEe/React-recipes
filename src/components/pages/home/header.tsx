@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Icon from '../../icons/icon';
+import LoginIcon from '@mui/icons-material/Login';
 
 const StyledHeader = styled.header`
   display: grid;
@@ -101,6 +101,7 @@ const Header = () => {
         </Link>
         <Link href="/" className="link">
           <Icon name="LogIn" />
+          <LoginIcon />
         </Link>
       </nav>
       <div className="title-container">
