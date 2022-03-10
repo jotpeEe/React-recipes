@@ -1,5 +1,5 @@
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemText, { ListItemTextProps } from '@mui/material/ListItemText';
 import styled from 'styled-components';
 import Paper from '@mui/material/Paper';
 
@@ -22,7 +22,7 @@ const StyledListItem = styled(ListItem)`
   }
 `;
 
-const MListItemText = (props: any) => {
+const MListItemText = (props: ListItemTextProps) => {
   const { primary, secondary } = props;
   return (
     <Paper>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import styled from 'styled-components';
 
@@ -13,7 +13,7 @@ const StyledIconButton = styled(IconButton)`
   }
 `;
 
-const MIconButton = (props: any) => {
+const MIconButton = (props: IconButtonProps) => {
   const { onClick } = props;
   return (
     <Tooltip title="Add">

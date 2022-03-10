@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField } from '@mui/material';
+import { TextField, TextFieldProps } from '@mui/material';
 import styled from 'styled-components';
 
 const StyledTextField = styled(TextField)`
@@ -10,7 +10,7 @@ const StyledTextField = styled(TextField)`
   }
 `;
 
-const MTextFieldMultiline = (props: any) => {
+const MTextFieldMultiline = (props: TextFieldProps) => {
   const { onChange, placeholder, label, defaultValue } = props;
   return (
     <StyledTextField
