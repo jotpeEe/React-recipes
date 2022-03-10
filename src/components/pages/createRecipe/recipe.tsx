@@ -46,8 +46,7 @@ const StyledPaper = styled(Paper)`
   }
 `;
 
-type RecipeProps = {
-  step?: number;
+export type RecipeProps = {
   title: string;
   ingredientsList: object[];
   description: string[];

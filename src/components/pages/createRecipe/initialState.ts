@@ -1,15 +1,17 @@
-type initialStateProps = {
+import { RecipeProps } from './recipe';
+
+export type initialStateProps = {
   step: number;
-  title: string;
-  ingredientsList: object[];
-  description: string[];
+  recipe: RecipeProps;
 };
 
 const initialState: initialStateProps = {
   step: 0,
-  title: '',
-  ingredientsList: [],
-  description: [],
+  recipe: {
+    title: '',
+    ingredientsList: [],
+    description: [],
+  },
 };
 
 export default initialState;

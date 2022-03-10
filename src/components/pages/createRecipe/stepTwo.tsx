@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
+
 import Title from './title';
 import MTextFieldMultiline from '../../material-ui/MTextFieldMultiline';
 import sr from '../../../styles/sr';
@@ -22,6 +23,7 @@ const StyledAddInserts = styled.div`
 const AddIngredients: React.FC = () => {
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
+  const { recipe } = state;
   const targetRef = useRef(null);
   const [input1, setInput1] = useState<string>('');
   const [input2, setInput2] = useState<string>('');
@@ -34,12 +36,12 @@ const AddIngredients: React.FC = () => {
     sr(targetRef.current);
     // updates description array only if there's new input
     setDescription([
-      input1 ? input1 : state.description[0],
-      input2 ? input2 : state.description[1],
-      input3 ? input3 : state.description[2],
-      input4 ? input4 : state.description[3],
+      input1 ? input1 : recipe.description[0],
+      input2 ? input2 : recipe.description[1],
+      input3 ? input3 : recipe.description[2],
+      input4 ? input4 : recipe.description[3],
     ]);
-  }, [input1, input2, input3, input4, state.description]);
+  }, [input1, input2, input3, input4, recipe.description]);
 
   return (
     <StyledAddInserts ref={targetRef}>
@@ -56,22 +58,22 @@ const AddIngredients: React.FC = () => {
       />
       <MTextFieldMultiline
         onChange={(e: { target: { value: string } }) => setInput1(e.target.value)}
-        defaultValue={state.description[0] ? state.description[0] : input1}
+        defaultValue={recipe.description[0] ? recipe.description[0] : input1}
         label="Step 1"
       />
       <MTextFieldMultiline
-        defaultValue={state.description[1] ? state.description[1] : input2}
+        defaultValue={recipe.description[1] ? recipe.description[1] : input2}
         onChange={(e: { target: { value: string } }) => setInput2(e.target.value)}
         label="Step 2"
       />
       <MTextFieldMultiline
-        defaultValue={state.description[2] ? state.description[2] : input3}
+        defaultValue={recipe.description[2] ? recipe.description[2] : input3}
         onChange={(e: { target: { value: string } }) => setInput3(e.target.value)}
         label="Step3"
       />
       <MTextFieldMultiline
         label="Step4"
-        defaultValue={state.description[3] ? state.description[3] : input4}
+        defaultValue={recipe.description[3] ? recipe.description[3] : input4}
         onChange={(e: { target: { value: string } }) => setInput4(e.target.value)}
       />
     </StyledAddInserts>

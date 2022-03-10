@@ -23,7 +23,8 @@ const StepThree: React.FC = () => {
   const { recipes, setRecipes } = useRecipes();
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
-  const { title, description, ingredientsList } = state;
+  const { recipe } = state;
+  const { title, ingredientsList, description } = recipe;
   const targetRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

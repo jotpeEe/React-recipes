@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './header';
 import Content from './content';
-// import GlobalStyle from '../../styles/globalstyle';
-// import { ThemeProvider } from '@mui/material/styles';
-// import theme from '../../styles/theme';
+import { RecipeProps } from '../createRecipe/recipe';
 
 const StyledHome = styled.div`
   height: 100vh;
 `;
 
-const Home: React.FC = () => {
+type HomeProps = {
+  recipes: RecipeProps[];
+};
+
+const Home: React.FC<HomeProps> = ({ recipes }) => {
+  console.log(recipes);
   return (
     <StyledHome>
       <Header />

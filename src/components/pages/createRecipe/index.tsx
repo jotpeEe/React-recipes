@@ -3,11 +3,9 @@ import { Outlet, useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
 import sr from '../../../styles/sr';
 
+import { RecipeProps } from './recipe';
 import { recipeReducer } from './reducer';
 import initialState from './initialState';
-import StepOne from './stepOne';
-import StepTwo from './stepTwo';
-import StepThree from './stepThree';
 import ProgressBar from './progressBar';
 
 const StyledContainer = styled.div`
@@ -42,9 +40,9 @@ const StyledContainer = styled.div`
 export const StateContext = React.createContext<typeof initialState>(initialState);
 export const DispatchContext = React.createContext<any>(() => {});
 
-const CreateRecipe: React.FC = () => {
+const CreateRecipe: React.FC<CreateRecipeProps> = ({ recipes, setRecipes }) => {
   const [state, dispatch] = useReducer(recipeReducer, initialState);
-  const { step, title } = state;
+  const { recipe } = state;
   const targetRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -59,7 +57,7 @@ const CreateRecipe: React.FC = () => {
             <div className="header-background">
               <div className="header">
                 <h2>Create Recipe</h2>
-                <p>{title}</p>
+                <p>{recipe.title}</p>
               </div>
             </div>
             {/* Renders stepOne / stepTwo / stepThree */}
