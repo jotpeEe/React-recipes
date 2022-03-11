@@ -16,7 +16,7 @@ const Home: React.FC<HomeProps> = ({ recipes }) => {
   console.log(recipes);
   return (
     <StyledHome>
-      <Header />
+      <Header recipes={recipes} />
       <Content />
     </StyledHome>
   );

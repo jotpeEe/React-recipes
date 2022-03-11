@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginIcon from '@mui/icons-material/Login';
+import SearchBar from './searchbar';
+import { RecipeProps } from '../createRecipe/recipe';
 
 const StyledHeader = styled.header`
   display: grid;
@@ -68,7 +70,7 @@ const StyledHeader = styled.header`
   .title-container {
     grid-row: span 3;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     margin: 0 auto;
@@ -89,7 +91,11 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header = () => {
+type HeaderProps = {
+  recipes: RecipeProps[];
+};
+
+const Header: React.FC<HeaderProps> = ({ recipes }) => {
   return (
     <StyledHeader>
       <nav>
@@ -107,7 +113,8 @@ const Header = () => {
         <div className="title">
           <h5>WELCOME</h5>
           <h3>Maciej Klos</h3>
-        </div>
+        </div>{' '}
+        <SearchBar recipes={recipes} />
       </div>
     </StyledHeader>
   );
