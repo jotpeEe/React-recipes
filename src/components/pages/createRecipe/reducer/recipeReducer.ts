@@ -47,7 +47,7 @@ const recipeReducer = (state: initialStateProps, action: any) => {
     case ACTIONS.SET_TITLE:
       return {
         ...state,
-        state: {
+        recipe: {
           ...state.recipe,
           title: action.payload,
         },

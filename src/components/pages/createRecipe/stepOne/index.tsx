@@ -4,9 +4,9 @@ import sr from '../../../../styles/sr';
 
 import Title from '../title';
 import Inserts from './inserts';
+import IngredientsList from './list';
 import { ACTIONS } from '../reducer';
 import { DispatchContext, StateContext } from '..';
-import ListItem from '../../../material-ui/MListItem';
 
 const StyledAddInserts = styled.div<{ active: boolean }>`
   display: flex;
@@ -19,20 +19,11 @@ const StyledAddInserts = styled.div<{ active: boolean }>`
     width: 100%;
     font-size: var(--fs-xs);
   }
-
-  ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 var(--p-recipe-right);
-  }
 `;
 
 const StepOne: React.FC = () => {
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
-
-  const { recipe } = state;
-
   const targetRef = useRef<HTMLDivElement | null>(null);
   const [title, setTitle] = useState<string>('Recipe title');
 
@@ -55,20 +46,7 @@ const StepOne: React.FC = () => {
         btnText="NEXT"
       />
       <Inserts title={title} setTitle={setTitle} />
-      <ul>
-        {recipe.ingredientsList &&
-          recipe.ingredientsList.map(
-            (item: { id?: number; name?: string; quantity?: string }, idx: number) => (
-              <ListItem
-                key={idx}
-                onClick={() =>
-                  dispatch({ type: ACTIONS.DELETE_INGREDIENT, payload: { id: item.id } })
-                }
-                item={item}
-              />
-            ),
-          )}
-      </ul>
+      <IngredientsList />
     </StyledAddInserts>
   );
 };
