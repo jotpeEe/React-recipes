@@ -64,6 +64,7 @@ const StyledRecipe = styled(Link)`
       background-color: var(--white);
       width: 100%;
       padding: 2px 15px;
+      font-size: 0.8rem;
     }
   }
 `;

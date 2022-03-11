@@ -31,7 +31,7 @@ const StyledSearchBar = styled.div`
     align-items: center;
     position: absolute;
     top: -30px;
-    left: 30px;
+    left: 27px;
     height: 30px;
     width: 40%;
     border-radius: 10px 10px 0 0;

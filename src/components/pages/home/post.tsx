@@ -7,12 +7,11 @@ import GoogleIcon from '@mui/icons-material/Google';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 
 const StyledPost = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 40%;
+  margin-right: 10%;
 
   img {
     padding-top: 40px;
@@ -62,8 +61,39 @@ const StyledPost = styled.div`
       }
 
       a {
+        position: relative;
+        height: 16px;
+        width: 16px;
         margin-right: 10px;
         color: #313131;
+
+        span {
+          position: absolute;
+          display: inline-block;
+          font-size: 9px;
+          background-color: #313131;
+          color: white;
+          height: 20px;
+          width: 60px;
+          left: 50%;
+          bottom: -45px;
+          margin-left: -30px;
+          line-height: 20px;
+          text-align: center;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+          color: var(--light-gray);
+
+          span {
+            bottom: -35px;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
       }
 
       a:last-of-type {
@@ -105,18 +135,23 @@ const Post: React.FC<PostProps> = ({
         <nav className="blog-social">
           <a href="/">
             <FavoriteBorderIcon />
+            <span>Like</span>
           </a>
           <a href="/">
             <FacebookIcon />
+            <span>Facebook</span>
           </a>
           <a href="/">
             <TwitterIcon />
+            <span>Twitter</span>
           </a>
           <a href="/">
             <GoogleIcon />
+            <span>Google +</span>
           </a>
           <a href="/">
             <PinterestIcon />
+            <span>Pinterest</span>
           </a>
         </nav>
       </div>

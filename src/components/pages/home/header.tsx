@@ -81,11 +81,13 @@ const StyledHeader = styled.header`
       width: 100%;
     }
 
-    & > .title > h3 {
+    & > .title > h1 {
       color: white;
+      opacity: 0.8;
     }
 
     & > .title > h5 {
+      padding-bottom: 15px;
       color: #357f73;
     }
   }
@@ -112,8 +114,8 @@ const Header: React.FC<HeaderProps> = ({ recipes }) => {
       <div className="title-container">
         <div className="title">
           <h5>WELCOME</h5>
-          <h3>Maciej Klos</h3>
-        </div>{' '}
+          <h1>Maciej Klos</h1>
+        </div>
         <SearchBar recipes={recipes} />
       </div>
     </StyledHeader>

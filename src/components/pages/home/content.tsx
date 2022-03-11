@@ -13,18 +13,34 @@ const StyledContent = styled.div`
   margin: 0 auto;
 
   .recipe-nav {
-    display: flex;
+    position: relative;
     padding: 20px 0;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 
-    & > h2 {
-      color: var(--green);
+    .recipe-title {
+      display: inline-block;
+      width: 100px;
+      padding: 10px 15px;
+
+      :before {
+        display: block;
+        position: absolute;
+        content: '';
+        height: 1px;
+        background-color: #313131;
+        width: 10%;
+        bottom: 20px;
+        left: 0;
+      }
+
+      h5 {
+        text-align: center;
+      }
     }
 
     .buttons {
-      display: flex;
+      display: inline-block;
+      position: absolute;
+      right: 0;
       justify-content: center;
       align-items: center;
 
@@ -49,10 +65,9 @@ const StyledContent = styled.div`
   }
 
   .posts {
-    grid-row: 5 / 7;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 25px;
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
   }
 
   @media (max-width: 860px) {
@@ -64,7 +79,9 @@ const Content = () => {
   return (
     <StyledContent>
       <div className="recipe-nav">
-        <h2>RECIPES</h2>
+        <div className="recipe-title">
+          <h5>RECIPES</h5>
+        </div>
         <div className="buttons">
           <Link to="/CreateRecipe/AddTitle">
             <Button text="ADD" />
@@ -81,6 +98,9 @@ const Content = () => {
         <Recipe />
       </div>
       <div className="posts">
+        <Post />
+        <Post />
+        <Post />
         <Post />
       </div>
     </StyledContent>
