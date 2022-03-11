@@ -11,7 +11,24 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
-}
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--black) var(--green);
+  }
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--white);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+    border: 2px solid var(--green);
+  }
+
 
   h1,
   h2,
