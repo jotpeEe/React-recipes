@@ -2,6 +2,16 @@
 
 # dependencies
 /node_modules
+
+# server
+
+/server/node_modules
+/server/.DS_Store
+/server/.env.local
+/server/.env.development.local
+/server/.env.test.local
+/server/.env.production.local
+
 /.pnp
 .pnp.js
 
