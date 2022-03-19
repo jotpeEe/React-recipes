@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from './header';
 import Content from './content';
 import { RecipeProps } from '../createRecipe/recipe';
+import Login from './login';
 
 const StyledHome = styled.div`
   height: 100vh;
@@ -17,7 +18,8 @@ const Home: React.FC<HomeProps> = ({ recipes }) => {
   return (
     <StyledHome>
       <Header recipes={recipes} />
-      <Content />
+      {/* <Content /> */}
+      <Login />
     </StyledHome>
   );
 };
