@@ -114,7 +114,7 @@ type PostProps = {
 const tit = 'LOREM IPSUM, DOLOR SIT AMET CONSECUTOR ADISICIPING.';
 
 const cont =
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis placeat consequuntur explicabo, voluptatum sit ducimus similique et repudiandae iste harum consequatur itaque totam labore optio?';
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis placeat consequuntur explicabo, voluptatum sit ducimus similique et repudiandae iste harum consequatur itaque totam labore optio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis placeat consequuntur explicabo, voluptatum sit ducimus similique et repudiandae iste harum consequatur itaque totam labore optio?';
 
 const Post: React.FC<PostProps> = ({
   author = 'Maciek',

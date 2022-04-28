@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button, TextField } from '@mui/material';
-import { useRegisterMutation } from '../../../generated/graphql';
+import { useRegisterMutation } from 'generated/graphql';
 
 interface LoginProps {}
 
@@ -27,15 +27,6 @@ const Login: React.FC<LoginProps> = () => {
 
   const [, register] = useRegisterMutation();
 
-  // const handleOnChange = (e) => {(e) => {
-  //               if (isError === true) {
-  //                 setIsError(!isError);
-  //                 setError({});
-  //               }
-  //               setOptions({ username: e.target.value, password: options.password });
-
-  // }
-
   return (
     <StyledLogin>
       <div className="container">
@@ -58,10 +49,8 @@ const Login: React.FC<LoginProps> = () => {
                 disableAnimation: true,
                 shrink: true,
               }}
-              id="standard-log-in"
               label={'Login'}
               onChange={e => {
-                console.log(typeof e);
                 if (isError === true) {
                   setIsError(!isError);
                   setError({});
@@ -77,7 +66,6 @@ const Login: React.FC<LoginProps> = () => {
                 disableAnimation: true,
                 shrink: true,
               }}
-              id="standard-error-helper-text"
               label="Password"
               onChange={e => {
                 if (isError === true) {

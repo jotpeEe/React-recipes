@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Rating from '../../material-ui/MRating';
+import Rating from 'components/material-ui/MRating';
 
 const StyledRecipe = styled(Link)`
   display: flex;

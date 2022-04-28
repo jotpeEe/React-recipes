@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DispatchContext, StateContext } from '..';
 import { ACTIONS } from '../reducer';
-import ListItem from '../../../material-ui/MListItem';
+import ListItem from 'components/material-ui/MListItem';
 
 const StyledList = styled.ul`
   display: grid;

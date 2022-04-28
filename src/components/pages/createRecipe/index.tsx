@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useRef } from 'react';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
-import sr from '../../../styles/sr';
+import sr from 'styles/sr';
 
 import { RecipeProps } from './recipe';
 import { recipeReducer } from './reducer';

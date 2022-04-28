@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginIcon from '@mui/icons-material/Login';
 import SearchBar from './searchbar';
-import { RecipeProps } from '../createRecipe/recipe';
+import { RecipeProps } from 'components/pages/createRecipe/recipe';
 
 const StyledHeader = styled.header`
   display: grid;

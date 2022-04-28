@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { ACTIONS } from '../reducer';
 import { DispatchContext, StateContext } from '..';
-import MIconButton from '../../../material-ui/MIconButton';
-import TextField from '../../../material-ui/MTextField';
+import MIconButton from 'components/material-ui/MIconButton';
+import TextField from 'components/material-ui/MTextField';
 
 const StyledInserts = styled.div`
   .inserts {

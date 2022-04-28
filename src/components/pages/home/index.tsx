@@ -18,8 +18,8 @@ const Home: React.FC<HomeProps> = ({ recipes }) => {
   return (
     <StyledHome>
       <Header recipes={recipes} />
-      {/* <Content /> */}
-      <Login />
+      <Content />
+      {/* <Login /> */}
     </StyledHome>
   );
 };

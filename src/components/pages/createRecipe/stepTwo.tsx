@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
 
 import Title from './title';
-import MTextFieldMultiline from '../../material-ui/MTextFieldMultiline';
-import sr from '../../../styles/sr';
+import MTextFieldMultiline from 'components/material-ui/MTextFieldMultiline';
+import sr from 'styles/sr';
 import { ACTIONS } from './reducer';
 import { DispatchContext, StateContext } from '.';
 

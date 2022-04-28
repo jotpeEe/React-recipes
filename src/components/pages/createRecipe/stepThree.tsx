@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
-import sr from '../../../styles/sr';
+import sr from 'styles/sr';
 
 import { useRecipes } from '.';
 import { ACTIONS } from './reducer';

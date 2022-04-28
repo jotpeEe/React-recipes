@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Autocomplete, TextField } from '@mui/material';
-import { RecipeProps } from '../createRecipe/recipe';
+import { RecipeProps } from 'components/pages/createRecipe/recipe';
 import SearchButton from './searchButton';
 
 const StyledSearchBar = styled.div`

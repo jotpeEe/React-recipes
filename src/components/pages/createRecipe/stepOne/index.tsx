@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
-import sr from '../../../../styles/sr';
+import sr from 'styles/sr';
 
 import Title from '../title';
 import Inserts from './inserts';
